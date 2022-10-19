@@ -1,0 +1,79 @@
+﻿@model saglikveri.Kategori
+
+@{
+    ViewBag.Title = "Kategori Düzenle";
+}
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="page-title-box">
+            <h4>Kategori Düzenle</h4>
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a href="javascript: void(0);">Sağlıklı Yasam</a></li>
+                <li class="breadcrumb-item"><a href="javascript: void(0);">Admin Panel</a></li>
+                <li class="breadcrumb-item"><a href="~/Admin/kategoris/">Kategori Düzenle</a></li>
+                <li class="breadcrumb-item active">Kategori Düzenle</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="">
+    <div class="card">
+        <div class="card-body">
+            <div class="custom-validation">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.HiddenFor(model => model.Kategoritarih)
+                    @Html.HiddenFor(model => model.kategorid)
+
+                    <div class="form-horizontal">
+                        <h4>Kullanici Düzenle</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <br>
+
+                        <br>
+
+                        <div class="form_control">
+                            <label class="form-label">Kategori Adı</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.kategoriAdi, new { htmlAttributes = new { @type = "text", @class = "form-control text-box single-line", @required = "", @minlength = "6", @placeholder = "Kullanıcı şifresi en az 6 karakter olmalıdır." } })
+                            </div>
+                            <div class="mb-3">
+
+                            </div>
+                        </div>
+
+                        <br>
+
+
+                        <br>
+
+                        <div class="form_control">
+                            <label class="form-label">Kategori Aktifmi</label>
+                            <div class="col-md-10 form-check form-switch form-switch-md mb-3">
+                                @Html.EditorFor(model => model.KategoriAktif, new { htmlAttributes = new { @class = "form-check-input", @type = "checkbox", @id = "customSwitchsizemd" } })
+                            </div>
+                            <div class="mb-3">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="btn btn-outline-primary waves-effect waves-light">
+                                <input type="submit" value="Kaydet" class="btn btn-default" />
+                            </div>
+                            @Html.ActionLink("Geri Gel", "Index")
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

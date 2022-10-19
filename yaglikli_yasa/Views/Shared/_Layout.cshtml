@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <meta name="robots" content="index, archive" />
+
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Saglam indir - @ViewBag.Title">
+    <meta property="og:site_name" content="Sağlıklı Yemek">
+    <meta name="twitter:card" content="summary">
+
+
+    <!-- Vendor Stylesheets -->
+    <link rel="stylesheet" href="~/assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/magnific-popup.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/slick.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/slick-theme.css">
+    <!-- Icon Fonts -->
+    <link rel="stylesheet" href="~/assets/fonts/flaticon/flaticon.css">
+    <link rel="stylesheet" href="~/assets/fonts/font-awesome/css/all.min.css">
+
+    <!-- Cookiteer Style sheet -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="~/assents/image/png" sizes="32x32" href="favicon.ico">
+
+</head>
+
+<body>
+
+    <!-- Preloader start -->
+
+    <!-- Preloader End -->
+    <!-- Aside (Mobile Navigation) -->
+    <aside class="main-aside">
+        <a class="navbar-brand" href="/" title="Saglam indir"> <img src="~/assets/img/logo.png" style="height:85px" alt="Saglam indir"> </a>
+
+        <div class="aside-scroll">
+            <ul>
+                <li class="menu-item">
+                    <a href="/" title="Anasayfa">Anasayfa</a>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a>Yemek Tarifleri</a>
+                    <ul class="submenu">
+                        @Html.Partial("_kategori", yaglikli_yasa.Models.Data.kategorii)
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="~/s" title="Saglam indir">Saglam indir</a>
+                </li>
+                <li class="menu-item">
+                    <a href="~/iletisim" title="İletişim">İletişim</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </aside>
+    <div class="aside-overlay aside-trigger"></div>
+
+    <!-- Header Start -->
+    <header class="main-header header-1 can-sticky">
+        <nav class="navbar">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="/" title="Anasayfa"> <img src="~/assets/img/logo.png" style="height:85px !important" alt="Saglam indir"> </a>
+                <!-- Menu -->
+                <ul class="navbar-nav">
+                    <li class="menu-item">
+                        <a href="/" title="Ansayfa">Anasayfa</a>
+                    </li>
+                    <li class="menu-item menu-item-has-children">
+                        <a>Kategoriler</a>
+                        <ul class="submenu">
+                            @Html.Partial("_kategori", yaglikli_yasa.Models.Data.kategorii)
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="~/iletisim" title="İletişim">İletişim</a>
+                    </li>
+                </ul>
+
+                <div class="header-controls">
+                    <ul class="header-controls-inner">
+                        <li class="search-dropdown-wrapper search-trigger">
+                            <i class="flaticon-magnifying-glass"></i>
+                        </li>
+                    </ul>
+                    <!-- Toggler -->
+                    <div class="aside-toggler aside-trigger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- Search Form Start-->
+        <div class="search-form-wrapper">
+            <div class="search-trigger close-btn">
+                <span></span>
+                <span></span>
+            </div>
+            <form class="search-form" action="~/Home/Ara" method="post">
+                <input type="text" placeholder="Ara..." value="">
+                <button type="submit" class="search-btn">
+                    <i class="flaticon-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+        <!-- Search Form End-->
+
+
+    </header>
+    <!-- Header End -->
+    @RenderBody()
+
+
+
+
+
+
+
+    <!-- Footer Start -->
+    <footer class="ct-footer footer-2">
+        <div class="container">
+            <div class="footer-widget">
+                <ul class="social-media">
+                    <li> <a href="/" title="Sağlam İndir"> <i class="fab fa-facebook-f"></i> </a> </li>
+                    <li> <a href="/" title="Sağlam İndir"> <i class="fab fa-twitter"></i> </a> </li>
+                    <li> <a href="/" title="Sağlam İndir"> <i class="fab fa-pinterest-p"></i> </a> </li>
+                    <li> <a href="/" title="Sağlam İndir"> <i class="fab fa-linkedin-in"></i> </a> </li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="m-0">&copy; Copyright 2022 - <a href="/" title="Saglam İndir">Sağlam İndir</a> Bütün haklarımız Saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+    <!-- Vendor Scripts -->
+    <script src="~/assets/js/plugins/jquery-3.4.1.min.js"></script>
+    <script src="~/assets/js/plugins/popper.min.js"></script>
+    <script src="~/assets/js/plugins/waypoint.js"></script>
+    <script src="~/assets/js/plugins/bootstrap.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.slimScroll.min.js"></script>
+    <script src="~/assets/js/plugins/imagesloaded.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.steps.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.countdown.min.js"></script>
+    <script src="~/assets/js/plugins/isotope.pkgd.min.js"></script>
+    <script src="~/assets/js/plugins/slick.min.js"></script>
+
+    <!-- Cookiteer Scripts -->
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+
+
+</html>

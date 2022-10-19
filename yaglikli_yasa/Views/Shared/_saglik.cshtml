@@ -1,0 +1,34 @@
+﻿@model IEnumerable<saglikveri.sagliktablo>
+@{
+    Layout = null;
+}
+
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-4 col-md-6">
+        <div class="recipe">
+            <div class="recipe-thumbnail">
+                <a href="~/s/d/@item.saglikUrl" title="@item.saglikAdi">
+                    <img src="~/images/@item.saglikResim" alt="@item.saglikAdi">
+                </a>
+            </div>
+            <div class="recipe-body">
+                <h5 class="recipe-title"> <a href="~/s/d/@item.saglikUrl" title="@item.saglikAdi">@item.saglikAdi </a> </h5>
+                <p class="recipe-text">@item.saglikAciklama</p>
+                <div class="recipe-meta">
+                    <div class="recipe-difficulty">
+                        <div class="recipe-difficulty-inner">
+                            <span class="active"></span>
+                            <span class="active"></span>
+                            <span class="active"></span>
+                        </div>
+                    </div>
+                    <div class="recipe-steps">
+                        <span><i class="fa fa-eye"></i> @item.SaglikGosterim</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

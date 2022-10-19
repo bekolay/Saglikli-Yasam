@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="saglikModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ayarlar">
+    <Key>
+      <PropertyRef Name="ayarlarid" />
+    </Key>
+    <Property Name="ayarlarid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Siteadi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sitemail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Smtp" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="port" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ayarlarsifre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ayarlartarih" Type="datetime" Nullable="false" />
+    <Property Name="kullanicid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bloglar">
+    <Key>
+      <PropertyRef Name="blogid" />
+    </Key>
+    <Property Name="blogid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="blogAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="blogUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="blogAcilama" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="blogKeyword" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="bloResim" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="blogYazi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="blogaktif" Type="bit" Nullable="false" />
+    <Property Name="blogTarih" Type="datetime" Nullable="false" />
+    <Property Name="kullanicid" Type="int" Nullable="false" />
+    <Property Name="kategorid" Type="int" Nullable="false" />
+    <Property Name="blogGosterim" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kategori">
+    <Key>
+      <PropertyRef Name="kategorid" />
+    </Key>
+    <Property Name="kategorid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kategoriAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KategoriUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KategoriAktif" Type="bit" Nullable="false" />
+    <Property Name="Kategoritarih" Type="datetime" Nullable="false" />
+    <Property Name="kullanicid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="kullanicid" />
+    </Key>
+    <Property Name="kullanicid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullaniciadi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kullaniciadisoyadi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kullaniciemail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kullanicitarih" Type="datetime" Nullable="false" />
+    <Property Name="kullaniciSifre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KullaniciSifretekrar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KullaniciEskiSifre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KullaniciAktifMi" Type="bit" Nullable="false" />
+    <Property Name="KullaniciUrl" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sagliktablo">
+    <Key>
+      <PropertyRef Name="saglikid" />
+    </Key>
+    <Property Name="saglikid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullanicid" Type="int" Nullable="false" />
+    <Property Name="saglikAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="saglikAciklama" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="saglikKeyword" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="saglikResim" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SaglikYazi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Saglikaktif" Type="bit" Nullable="false" />
+    <Property Name="saglikTarih" Type="datetime" Nullable="false" />
+    <Property Name="SaglikGosterim" Type="int" Nullable="false" />
+    <Property Name="saglikUrl" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsConfirmed" Type="bit" />
+    <Property Name="LastPasswordFailureDate" Type="datetime" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordChangedDate" Type="datetime" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Yaptim">
+    <Key>
+      <PropertyRef Name="yaptimİd" />
+    </Key>
+    <Property Name="yaptimİd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="blogid" Type="int" Nullable="false" />
+    <Property Name="kullanicid" Type="int" Nullable="false" />
+    <Property Name="yaptimbunu" Type="bit" Nullable="false" />
+    <Property Name="yaptimTarih" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Ayarlar_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+    <End Role="Ayarlar" Type="Self.Ayarlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Ayarlar">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bloglar_Kategori">
+    <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
+    <End Role="Bloglar" Type="Self.Bloglar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategori">
+        <PropertyRef Name="kategorid" />
+      </Principal>
+      <Dependent Role="Bloglar">
+        <PropertyRef Name="kategorid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bloglar_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+    <End Role="Bloglar" Type="Self.Bloglar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Bloglar">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kategori_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+    <End Role="Kategori" Type="Self.Kategori" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Kategori">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RoleId">
+    <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="webpages_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sagliktablo_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+    <End Role="sagliktablo" Type="Self.sagliktablo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="sagliktablo">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserId">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Yaptim_Bloglar">
+    <End Role="Bloglar" Type="Self.Bloglar" Multiplicity="1" />
+    <End Role="Yaptim" Type="Self.Yaptim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bloglar">
+        <PropertyRef Name="blogid" />
+      </Principal>
+      <Dependent Role="Yaptim">
+        <PropertyRef Name="blogid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Yaptim_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+    <End Role="Yaptim" Type="Self.Yaptim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Yaptim">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="saglikModelStoreContainer">
+    <EntitySet Name="Ayarlar" EntityType="Self.Ayarlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bloglar" EntityType="Self.Bloglar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sagliktablo" EntityType="Self.sagliktablo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Yaptim" EntityType="Self.Yaptim" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Ayarlar_Kullanici" Association="Self.FK_Ayarlar_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Ayarlar" EntitySet="Ayarlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bloglar_Kategori" Association="Self.FK_Bloglar_Kategori">
+      <End Role="Kategori" EntitySet="Kategori" />
+      <End Role="Bloglar" EntitySet="Bloglar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bloglar_Kullanici" Association="Self.FK_Bloglar_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Bloglar" EntitySet="Bloglar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kategori_Kullanici" Association="Self.FK_Kategori_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Kategori" EntitySet="Kategori" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sagliktablo_Kullanici" Association="Self.FK_sagliktablo_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="sagliktablo" EntitySet="sagliktablo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Yaptim_Bloglar" Association="Self.FK_Yaptim_Bloglar">
+      <End Role="Bloglar" EntitySet="Bloglar" />
+      <End Role="Yaptim" EntitySet="Yaptim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Yaptim_Kullanici" Association="Self.FK_Yaptim_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Yaptim" EntitySet="Yaptim" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

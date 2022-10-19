@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Sağlam İndir Anasayfa";
+}
+
+
+<meta name="description" content="En güncel dizi,oyun ve filmleri dizimizde bulabilir ve gönül rahatlığı ile indirebilirsiniz." />
+<meta property="og:url" content="https://saglamindir.com/">
+<meta name="twitter:description" content="En güncel dizi,oyun ve filmleri dizimizde bulabilir ve gönül rahatlığı ile indirebilirsiniz." />
+<meta name="robots" content="index, follow, noodp">
+<meta name="keywords" content="Saglam indir,full indir,oyun indir,full hd indir,torrent indir">
+
+<!-- Banner Start -->
+<div class="banner subheader bg-cover dark-overlay dark-overlay-2" style="background-image: url('/assets/img/7458.jpg')">
+    <!-- Prev Arrow -->
+    <i class="slider-prev fas fa-arrow-left slick-arrow"></i>
+    <div class="container">
+
+        <div class="banner-slider">
+            @Html.Partial("_Slider", yaglikli_yasa.Models.Data.slider)
+        </div>
+
+    </div>
+    <!-- Next Arrow -->
+    <i class="slider-next fas fa-arrow-right slick-arrow"></i>
+</div>
+<!-- Banner End -->
+<br />
+<br />
+<!-- Blog Posts Start -->
+<section class="section pt-0 section-padding posts">
+    <div class="container">
+        <div class="section-title-wrap section-header">
+            <h2 class="title">Yeni Eklenenler </h2>
+            <p class="subtitle">
+               Sizler için en yeni eklenenler.
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+
+                <div class="row">
+
+                    <!-- Post Start -->
+                    <div class="col-lg-12">
+                        @Html.Partial("_birinci", yaglikli_yasa.Models.Data.birinci)
+                    </div>
+                    <!-- Post End -->
+                    <!-- Post Start -->
+                    @Html.Partial("_ikinci", yaglikli_yasa.Models.Data.ikinci)
+                    <!-- Post End -->
+
+                </div>
+
+            </div>
+            <div class="col-lg-4">
+                <div class="sidebar">
+
+                    <div class="sidebar-widget">
+                        <h5>Öne Çıkan Yazılar</h5>
+
+                        @Html.Partial("_Gosterim", yaglikli_yasa.Models.Data.gosterim)
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- Blog Posts End -->

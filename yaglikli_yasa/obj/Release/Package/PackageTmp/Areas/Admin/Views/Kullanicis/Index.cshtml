@@ -1,0 +1,61 @@
+﻿@model IEnumerable<saglikveri.Kullanici>
+
+@{
+    ViewBag.Title = "Kullanıcılar";
+}
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="page-title-box">
+            <h4>Kullanıcılar</h4>
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a href="javascript: void(0);">Sağlıklı Yasam</a></li>
+                <li class="breadcrumb-item"><a href="javascript: void(0);">Admin Panel</a></li>
+                <li class="breadcrumb-item"><a>Kullanıcılar</a></li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Basic example</h4>
+
+                <div class="table-responsive">
+                    <table class="table mb-0">
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Kullanıcı Adı</th>
+                                <th>Kullanıcı Adı Soyad</th>
+                                <th>Kullanıcı Aktifmi</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <th scope="row">@item.kullanicid</th>
+                                <td>@item.kullaniciadi</td>
+                                <td>@item.kullaniciadisoyadi</td>
+                                <td>@item.KullaniciAktifMi</td>
+                                <td>
+                                    @Html.ActionLink("Düzenle", "Edit", new { id = item.kullanicid })
+                                </td>
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->

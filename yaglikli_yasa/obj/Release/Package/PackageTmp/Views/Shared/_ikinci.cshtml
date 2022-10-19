@@ -1,0 +1,29 @@
+﻿@model IEnumerable<saglikveri.Bloglar>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-6 col-md-6">
+        <article class="post">
+            <div class="post-thumbnail">
+                <a href="~/d/@item.blogUrl" title="@item.blogAdi">
+                    <img src="~/images/@item.bloResim" alt="@item.blogAdi">
+                </a>
+                <div class="post-meta">
+                    <span>@item.blogTarih.ToString("dd.MM.yyyy")</span>
+                    <span>@item.Kullanici.kullaniciadisoyadi</span>
+                </div>
+            </div>
+            <div class="post-categories">
+                <a href="~/kategori/@item.Kategori.KategoriUrl" title="@item.Kategori.kategoriAdi">@item.Kategori.kategoriAdi</a>
+            </div>
+            <div class="post-body">
+                <h5 class="post-title"> <a href="~/d/@item.blogUrl" title="@item.blogAdi">@item.blogAdi</a> </h5>
+                <p class="post-text">@item.blogAcilama</p>
+            </div>
+        </article>
+    </div>
+}
+

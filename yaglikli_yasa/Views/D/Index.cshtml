@@ -1,0 +1,283 @@
+﻿@model saglikveri.Bloglar
+@{
+    Layout = null;
+    ViewBag.Title = Model.blogAdi;
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+
+
+
+<head>
+    <title>@Model.blogAdi</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@Model.blogAcilama" />
+    <meta property="og:url" content="https://indirsaglam.com/d/@Model.blogUrl">
+    <meta name="twitter:description" content="@Model.blogAcilama" />
+    <meta name="keywords" content="@Model.blogKeyword">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Saglam indir - @ViewBag.Title">
+    <meta property="og:site_name" content="Sağlıklı Yemek">
+    <meta name="twitter:card" content="summary">
+
+
+    <!-- Vendor Stylesheets -->
+    <link rel="stylesheet" href="~/assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/magnific-popup.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/slick.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/slick-theme.css">
+    <!-- Icon Fonts -->
+    <link rel="stylesheet" href="~/assets/fonts/flaticon/flaticon.css">
+    <link rel="stylesheet" href="~/assets/fonts/font-awesome/css/all.min.css">
+
+    <!-- Cookiteer Style sheet -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="~/assents/image/png" sizes="32x32" href="favicon.ico">
+
+</head>
+
+<body>
+
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://https-indirsaglam-com.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    </script>
+    <!-- Preloader start -->
+    <!-- Preloader End -->
+    <!-- Aside (Mobile Navigation) -->
+    <aside class="main-aside">
+        <a class="navbar-brand" href="/" title="Saglam İndir"> <img src="~/assets/img/logo.png" style="height:85px !important" alt="Saglam indir" > </a>
+
+        <div class="aside-scroll">
+            <ul>
+                <li class="menu-item">
+                    <a href="/" title="Anasayfa">Anasayfa</a>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a>Kategoriler</a>
+                    <ul class="submenu">
+                        @Html.Partial("_kategori", yaglikli_yasa.Models.Data.kategorii)
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="~/iletisim" title="İletişim">İletişim</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </aside>
+    <div class="aside-overlay aside-trigger"></div>
+
+    <!-- Header Start -->
+    <header class="main-header header-1 can-sticky">
+        <nav class="navbar">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="/" title="Anasayfa"> <img src="~/assets/img/logo.png" style="height:85px" alt="Saglam indir"> </a>
+                <!-- Menu -->
+                <ul class="navbar-nav">
+                    <li class="menu-item">
+                        <a href="/" title="Ansayfa">Anasayfa</a>
+                    </li>
+                    <li class="menu-item menu-item-has-children">
+                        <a>Kategoriler</a>
+                        <ul class="submenu">
+                            @Html.Partial("_kategori", yaglikli_yasa.Models.Data.kategorii)
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="~/iletisim" title="İletişim">İletişim</a>
+                    </li>
+                </ul>
+
+                <div class="header-controls">
+                    <ul class="header-controls-inner">
+                        <li class="search-dropdown-wrapper search-trigger">
+                            <i class="flaticon-magnifying-glass"></i>
+                        </li>
+                    </ul>
+                    <!-- Toggler -->
+                    <div class="aside-toggler aside-trigger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- Search Form Start-->
+        <div class="search-form-wrapper">
+            <div class="search-trigger close-btn">
+                <span></span>
+                <span></span>
+            </div>
+            <form class="search-form" action="~/Home/Ara" method="post">
+                <input type="text" placeholder="Ara..." value="">
+                <button type="submit" class="search-btn">
+                    <i class="flaticon-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+        <!-- Search Form End-->
+
+
+    </header>
+
+    <!-- Subheader Start -->
+    <div class="subheader bg-cover dark-overlay dark-overlay-2" style="background-image: url('/assets/img/7458.jpg')">
+        <div class="container">
+            <div class="subheader-inner">
+                <h1>@Model.blogAdi</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                        <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"> <a href="/" itemprop="item" title="Oyun İndir">Anasayfa</a><meta itemprop="position" content="1"></li>
+                        <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">><a href="~/kategori/@Model.Kategori.KategoriUrl" itemprop="item" title="@Model.Kategori.kategoriAdi">@Model.Kategori.kategoriAdi</a><meta itemprop="position" content="2"></li>
+                        <li class="breadcrumb-item active" aria-current="page">@Model.blogAdi</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Subheader End -->
+    <!-- Blog Post Start -->
+    <div class="section section-padding single-post-1">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-8">
+
+                    <!-- Content Start -->
+                    <figure class="content-body__image" itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+                        <meta itemprop="url" content="https://cdn.webtekno.com/images/@Model.bloResim">
+                        <meta itemprop="width" content="730">
+                        <meta itemprop="height" content="410">
+                    </figure>
+
+                    <article class="post-single">
+                        <div class="post-thumbnail">
+                            <img style=" height: 410px;  width: 730px; " src="~/images/@Model.bloResim" alt="@Model.blogAdi">
+                        </div>
+                        <div class="post-categories">
+                            <a href="~/kategori/@Model.Kategori.KategoriUrl" title="@Model.Kategori.kategoriAdi">@Model.Kategori.kategoriAdi</a>
+                        </div>
+                        <h2 class="title">@Model.blogAdi</h2>
+                        <div class="post-meta">
+                            <span> <i class="far fa-calendar"></i> @Model.blogTarih.ToString("dd.MM.yyyy")</span>
+                            <span> <i class="far fa-user"></i> @Model.Kullanici.kullaniciadisoyadi</span>
+                        </div>
+                        <div class="post-content" itemprop="description">
+                            @Model.blogAcilama
+                        </div>
+                        <div class="post-content" itemprop="articleBody">
+                            @Html.Raw(Model.blogYazi)
+                        </div>
+                    </article>
+                    <!-- Content End -->
+                    <!-- Post Meta start -->
+                    <!-- Post Meta End -->
+                    <!-- About Author Start -->
+                    <div class="about-author">
+                        <h4>Yazar</h4>
+                        <div class="about-author-inner">
+                            <div class="about-author-content">
+                                <h5>@Model.Kullanici.kullaniciadisoyadi</h5>
+                                <p>
+                                    Sizler en doğrusuna ulaşın diye sizlerleyiz.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- About Author End -->
+                    <!-- Comments Start -->
+                    <div class="comments-list">
+                        <h4>Yorumlar</h4>
+                        <ul>
+                            <div id="disqus_thread"></div>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="sidebar">
+
+                        <div class="sidebar-widget">
+                            <h5>Öne Çıkan Yazılar</h5>
+
+                            @Html.Partial("_Gosterim", yaglikli_yasa.Models.Data.gosterim)
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Newsletter End -->
+    <!-- Footer Start -->
+    <footer class="ct-footer footer-2">
+        <div class="container">
+            <div class="footer-widget">
+                <ul class="social-media">
+                    <li> <a href="/" title="Sağlam İndir"> <i class="fab fa-facebook-f"></i> </a> </li>
+                    <li> <a href="/" title="Sağlam İndir"> <i class="fab fa-twitter"></i> </a> </li>
+                    <li> <a href="/" title="Sağlam İndir"> <i class="fab fa-pinterest-p"></i> </a> </li>
+                    <li> <a href="/" title="Sağlam İndir"> <i class="fab fa-linkedin-in"></i> </a> </li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="m-0">&copy; Copyright 2022 - <a href="/" title="Saglam İndir">Sağlam İndir</a> Bütün haklarımız Saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+    <!-- Vendor Scripts -->
+    <script src="~/assets/js/plugins/jquery-3.4.1.min.js"></script>
+    <script src="~/assets/js/plugins/popper.min.js"></script>
+    <script src="~/assets/js/plugins/waypoint.js"></script>
+    <script src="~/assets/js/plugins/bootstrap.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.slimScroll.min.js"></script>
+    <script src="~/assets/js/plugins/imagesloaded.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.steps.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.countdown.min.js"></script>
+    <script src="~/assets/js/plugins/isotope.pkgd.min.js"></script>
+    <script src="~/assets/js/plugins/slick.min.js"></script>
+
+    <!-- Cookiteer Scripts -->
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+
+
+</html>

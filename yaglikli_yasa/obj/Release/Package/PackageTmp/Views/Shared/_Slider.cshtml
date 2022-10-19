@@ -1,0 +1,17 @@
+﻿@model IEnumerable<saglikveri.Bloglar>
+@{
+    Layout = null;
+}
+
+
+@foreach (var item in Model)
+{
+    <div class="banner-item text-center">
+        <div class="banner-inner">
+            <h1 class="title text-white">@item.blogAdi </h1>
+            <p class="subtitle text-white">@item.blogAcilama</p>
+            <a href="~/d/@item.blogUrl" title="@item.blogAdi" class="btn-custom primary shadow-none">@item.blogAdi<i class="fas fa-arrow-right"></i> </a>
+        </div>
+    </div>
+}
+

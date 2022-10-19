@@ -1,0 +1,89 @@
+﻿@model IPagedList<saglikveri.Bloglar>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = @ViewBag.Kategori;
+}
+
+<title>Sağlam İndir Arama</title>
+<meta name="description" content="En güncel dizi,oyun ve filmleri dizimizde bulabilir ve gönül rahatlığı ile indirebilirsiniz." />
+<meta property="og:url" content="https://saglamindir.com/kategori/@ViewBag.url">
+<meta name="twitter:description" content="En güncel dizi,oyun ve filmleri dizimizde bulabilir ve gönül rahatlığı ile indirebilirsiniz." />
+<meta name="robots" content="noindex">
+
+
+<!-- Subheader Start -->
+<div class="subheader bg-cover dark-overlay dark-overlay-2" style="background-image: url('/assets/img/subheader.jpg')">
+    <div class="container">
+        <div class="subheader-inner">
+            <h1>@ViewBag.Kategori</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" title="Saglam indir">Anasayfa</a></li>
+                    <li class="breadcrumb-item"><a href="~/kategori/@ViewBag.url" title="@ViewBag.Kategori">@ViewBag.Kategori</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@ViewBag.Kategori</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Subheader End -->
+<!-- Blog Posts Start -->
+<div class="section section-padding posts">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8">
+
+                @foreach (var item in Model)
+                {
+                    <article class="post">
+                        <div class="post-thumbnail">
+                            <a href="~/d/@item.blogUrl">
+                                <img src="~/images/@item.bloResim" alt="@item.blogAdi">
+                            </a>
+                            <div class="post-meta">
+                                <span>@item.blogTarih.ToString("dd.MM.yyyy")</span>
+                                <span>@item.Kullanici.kullaniciadisoyadi</span>
+                            </div>
+                        </div>
+                        <div class="post-categories">
+                            <a href="~/kategori/@item.Kategori.KategoriUrl" title="@item.Kategori.kategoriAdi">@item.Kategori.kategoriAdi</a>
+                        </div>
+                        <div class="post-body">
+                            <h5 class="post-title"> <a href="~/d/@item.blogUrl" title="@item.blogAdi">@item.blogAdi</a> </h5>
+                            <p class="post-text">@item.blogAcilama</p>
+                        </div>
+                    </article>
+                }
+
+
+                <div class="text-center">
+                    <ul class="pagination">
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { kategori = page }), new PagedListRenderOptions
+                   {
+                       LiElementClasses = new string[] { "page-link" }
+                   })
+                    </ul>
+                    <!-- Pagination End -->
+
+                </div>
+
+            </div>
+            <div class="col-lg-4">
+                <div class="sidebar">
+
+                    <div class="sidebar-widget">
+                        <h5>Öne Çıkan Yazılar</h5>
+
+                        @Html.Partial("_Gosterim", yaglikli_yasa.Models.Data.gosterim)
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Blog Posts End -->

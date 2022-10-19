@@ -1,0 +1,105 @@
+﻿@model saglikveri.Ayarlar
+
+@{
+    ViewBag.Title = "Site Ayar";
+}
+
+<h2>Edit</h2>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="page-title-box">
+            <h4>Kullanıcı Ekle</h4>
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a href="javascript: void(0);">Sağlıklı Yasam</a></li>
+                <li class="breadcrumb-item"><a href="javascript: void(0);">Admin Panel</a></li>
+                <li class="breadcrumb-item"><a href="~/Admin/Ayarlars/">Ayarlar</a></li>
+                <li class="breadcrumb-item active">Site Ayarlar Düzenle</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="">
+    <div class="card">
+        <div class="card-body">
+            <div class="custom-validation">
+                @using (Html.BeginForm())
+                {
+                    @Html.HiddenFor(model => model.ayarlarid)
+                    @Html.HiddenFor(model => model.ayarlartarih)
+
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h4>Kullanici Ekle</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form_control">
+                            <label class="form-label">Site Adı</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Siteadi, new { htmlAttributes = new { @type = "text", @class = "form-control text-box single-line", @required = "", @minlength = "5", @placeholder = "Site adını yazınız" } })
+                            </div>
+                            <div class="mb-3">
+
+                            </div>
+                        </div>
+
+                        <div class="form_control">
+                            <label class="form-label">Site mail</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Sitemail, new { htmlAttributes = new { @type = "text", @class = "form-control text-box single-line", @required = "", @minlength = "5", @placeholder = "Site mail yazınız" } })
+                            </div>
+                            <div class="mb-3">
+
+                            </div>
+                        </div>
+
+                        <div class="form_control">
+                            <label class="form-label">Port </label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.port, new { htmlAttributes = new { @type = "text", @class = "form-control text-box single-line", @required = "", @minlength = "3", @placeholder = "Port yazınız" } })
+                            </div>
+                            <div class="mb-3">
+
+                            </div>
+                        </div>
+
+
+                        <div class="form_control">
+                            <label class="form-label">Smtp </label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Smtp, new { htmlAttributes = new { @type = "text", @class = "form-control text-box single-line", @required = "", @minlength = "3", @placeholder = "Smtp yazınız" } })
+                            </div>
+                            <div class="mb-3">
+
+                            </div>
+                        </div>
+
+                        <div class="form_control">
+                            <label class="form-label">Şifre </label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ayarlarsifre, new { htmlAttributes = new { @type = "password", @class = "form-control text-box single-line", @required = "", @minlength = "5", @placeholder = "Şifre yazınız" } })
+                            </div>
+                            <div class="mb-3">
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="btn btn-outline-primary waves-effect waves-light">
+                                <input type="submit" value="Kaydet" class="btn btn-default" />
+                            </div>
+                            @Html.ActionLink("Geri Gel", "Index")
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

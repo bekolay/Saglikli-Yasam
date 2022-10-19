@@ -1,0 +1,11 @@
+﻿@model IEnumerable<saglikveri.Kategori>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+<li class="menu-item">
+    <a href="~/kategori/@item.KategoriUrl" title="@item.kategoriAdi">@item.kategoriAdi</a>
+</li>
+}

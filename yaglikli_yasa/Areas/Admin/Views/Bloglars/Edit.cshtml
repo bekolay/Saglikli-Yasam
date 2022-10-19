@@ -1,0 +1,146 @@
+﻿@model saglikveri.Bloglar
+
+@{
+    ViewBag.Title = "Blog Düzenle";
+}
+
+<script src="~/Areas/Admin/ckeditor/ckeditor.js"></script>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="page-title-box">
+            <h4>Kullanıcı Ekle</h4>
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a href="javascript: void(0);">Sağlıklı Yasam</a></li>
+                <li class="breadcrumb-item"><a href="javascript: void(0);">Admin Panel</a></li>
+                <li class="breadcrumb-item"><a href="~/Admin/Kullanicis/">Blog</a></li>
+                <li class="breadcrumb-item active">Blog Düzenle</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="">
+    <div class="card">
+        <div class="card-body">
+            <div class="custom-validation">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.HiddenFor(model => model.bloResim)
+                    @Html.HiddenFor(model => model.blogid)
+                    @Html.HiddenFor(model => model.blogTarih)
+                    @Html.HiddenFor(model => model.blogGosterim)
+
+                    <div class="form-horizontal">
+                        <h4>Sağlık Düzenle</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <br>
+
+                        <br>
+
+                        <div class="form_control">
+                            <label class="form-label">Blog Adı</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.blogAdi, new { htmlAttributes = new { @type = "text", @class = "form-control text-box single-line", @required = "", @minlength = "6", @placeholder = "Blog adı giriniz" } })
+                            </div>
+                            <div class="mb-3">
+
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="form_control">
+                            <label class="form-label">Blog Açıklama</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.blogAcilama, new { htmlAttributes = new { @type = "text", @class = "form-control text-box single-line", @required = "", @minlength = "156", @placeholder = "157 karakterlik açıklama" } })
+                            </div>
+                            <div class="mb-3">
+
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="form_control">
+                            <label class="form-label">Anahtar Kelime</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.blogKeyword, new { htmlAttributes = new { @type = "text", @class = "form-control text-box single-line", @required = "", @minlength = "7", @placeholder = "anahtar,anahtar2...." } })
+                            </div>
+                            <div class="mb-3">
+
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="form_control">
+                            <label class="form-label">Kategori</label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("kategorid", null, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            <div class="mb-3">
+
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="form_control">
+                            <label class="form-label">Blog Aktifmi</label>
+                            <div class="col-md-10 form-check form-switch form-switch-md mb-3">
+                                @Html.EditorFor(model => model.blogaktif, new { htmlAttributes = new { @class = "form-check-input", @type = "checkbox", @id = "customSwitchsizemd" } })
+                            </div>
+                            <div class="mb-3">
+
+                            </div>
+                        </div>
+
+                        <div class="form_control">
+                            <label class="form-label">Blog Yazı</label>
+                            <div class="col-md-10">
+                                <form method="post">
+                                    <div class="controls">
+                                        @Html.TextAreaFor(model => model.blogYazi, new { htmlAttributes = new { @class = "form-control", size = "25", @required = "required", autofocus = "", @type = "text" } })
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="mb-3">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="btn btn-outline-primary waves-effect waves-light">
+                                <input type="submit" value="Kaydet" class="btn btn-default" />
+                            </div>
+                            @Html.ActionLink("Geri Gel", "Index")
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/CKFinderScripts/ckfinder.js"></script>
+    <script type="text/javascript">
+        var editor = CKEDITOR.instances['blogYazi'];
+        if (editor) { editor.destroy(true); }
+
+        CKEDITOR.replace('blogYazi', {
+            enterMode: CKEDITOR.ENTER_BR,
+            filebrowserBrowseUrl: '/Images?type=Images',
+            filebrowserFlashBrowseUrl: '/Images/?type=Flash',
+        });
+        CKFinder.setupCKEditor(BlogYazi);
+
+    </script>
+}

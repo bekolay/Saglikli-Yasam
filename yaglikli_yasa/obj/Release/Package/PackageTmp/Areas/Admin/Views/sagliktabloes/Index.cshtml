@@ -1,0 +1,40 @@
+﻿@model IEnumerable<saglikveri.sagliktablo>
+
+@{
+    ViewBag.Title = "Sağlık";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Bloglar</h4>
+                <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Sağlık Adı</th>
+                            <th>Sağlık Tarih</th>
+                            <th>Aktif Mi ?</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.saglikAdi</td>
+                                <td>@item.saglikTarih</td>
+                                <td>@item.Saglikaktif</td>
+                                <td>@Html.ActionLink("Düzenle", "Edit", new { id = item.saglikid }) </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- end col -->
+</div>
+<!-- end row -->

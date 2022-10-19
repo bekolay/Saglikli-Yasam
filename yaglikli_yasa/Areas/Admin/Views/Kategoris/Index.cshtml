@@ -1,0 +1,98 @@
+﻿@model IEnumerable<saglikveri.Kategori>
+
+@{
+    ViewBag.Title = "Kategoriler";
+}
+
+@*<h2>Index</h2>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="page-title-box">
+                <h4>Kullanıcılar</h4>
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Sağlıklı Yasam</a></li>
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Admin Panel</a></li>
+                    <li class="breadcrumb-item"><a>Kullanıcılar</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Basic example</h4>
+                    <p class="card-title-desc">
+                        For basic styling—light padding and
+                        only horizontal dividers—add the base class <code>.table</code> to any
+                        <code>&lt;table&gt;</code>.
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Kategori Adı</th>
+                                    <th>Kategori Tarih</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.kategoriAdi</th>
+                                        <td>@item.Kategoritarih</td>
+                                        <td>
+                                            @Html.ActionLink("Düzenle", "Edit", new { id = item.kullanicid })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+     end row*@
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Kategoriler</h4>
+                <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Kategori Adı</th>
+                            <th>Kategori Tarih</th>
+                            <th>Aktif Mi ?</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.kategoriAdi</td>
+                                <td>@item.Kategoritarih</td>
+                                <td>@item.KategoriAktif</td>
+                                <td>@Html.ActionLink("Düzenle", "Edit", new { id = item.kategorid }) </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- end col -->
+</div>
+<!-- end row -->

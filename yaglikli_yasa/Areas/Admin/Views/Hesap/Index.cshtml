@@ -1,0 +1,107 @@
+﻿@model yaglikli_yasa.Areas.Admin.Models.LoginModel
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from lexa.django.themesbrand.com/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Aug 2021 09:44:37 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <title>Saglam indir - Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Saglam indir admin paneli" name="description" />
+    <meta content="Ozbasoft" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="~/Areas/Admin/assets/images/favicon.ico">
+
+    <!-- Bootstrap Css -->
+    <link href="~/Areas/Admin/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="~/Areas/Admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="~/Areas/Admin/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="account-pages my-5 pt-sm-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="card overflow-hidden">
+                        <div class="card-body pt-0">
+                            <h3 class="text-center mt-5 mb-4">
+                                Saglam indir
+                            </h3>
+                            <div class="p-3">
+                                <form method="post" class="form-horizontal mt-4">
+                                    @Html.ValidationSummary(true)
+                                    @Html.AntiForgeryToken()
+                                    <div class="mb-3">
+                                        <label for="username">Kullanıcı Adı</label>
+                                        @*<input type="text" class="form-control" id="username" placeholder="Lütfen kullanıcı adınızı giriniz">*@
+                                        @Html.TextBoxFor(model => model.kullaniciadi, new { @class = "form-control", type = "text", id = "text", @placeholder = "Lütfen kullanıcı adınızı giriniz" })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userpassword">Şifre</label>
+                                        @Html.TextBoxFor(model => model.kullaniciSifre, new { @class = "form-control", type = "password", id = "password", @placeholder = "Lütfen şifrenizi giriniz" })
+                                    </div>
+                                    <div class="mb-3 row mt-4">
+                                        <div class="col-6">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="customControlInline">
+                                                <label class="form-check-label" for="customControlInline">
+                                                    Beni Hatırla
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 text-end">
+                                            <button class="btn btn-primary w-md waves-effect waves-light form-control" type="submit">Giriş Yap</button>
+                                        </div>
+                                    </div>
+
+                                    @if (ViewBag.Error != null)
+                                    {
+                                        <div class="alert alert-danger">@ViewBag.Error</div>
+                                    }
+                                    @if (!ViewData.ModelState.IsValid)
+                                    {
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach (ModelState modelState in ViewData.ModelState.Values)
+                                                {
+                                                    foreach (ModelError error in modelState.Errors)
+                                                    {
+                                                        <li>@error.ErrorMessage</li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                    }
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 text-center">
+                        ©
+                        <script>document.write(new Date().getFullYear())</script> Saglam indir <span class="d-none d-sm-inline-block"> - Yönetim Paneli <i class="mdi mdi-heart text-danger"></i> Bütün Haklarımız Saklıdır.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JAVASCRIPT -->
+    <script src="~/Areas/Admin/assets/libs/jquery/jquery.min.js"></script>
+    <script src="~/Areas/Admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Areas/Admin/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="~/Areas/Admin/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="~/Areas/Admin/assets/libs/node-waves/waves.min.js"></script>
+    <script src="~/Areas/Admin/assets/libs/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!-- App js -->
+    <script src="~/Areas/Admin/assets/js/app.js"></script>
+</body>
+
+<!-- Mirrored from lexa.django.themesbrand.com/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Aug 2021 09:44:37 GMT -->
+</html>

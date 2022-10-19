@@ -1,0 +1,31 @@
+﻿@model IEnumerable<saglikveri.Bloglar>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <div class="recipe featured-recipe">
+        <div class="recipe-thumbnail">
+            <a href="~/d/@item.blogUrl" title="@item.blogAdi">
+                <img src="~/images/@item.bloResim" alt="@item.blogAdi">
+            </a>
+        </div>
+        <div class="recipe-body">
+            <h6 class="recipe-title"> <a href="~/d/@item.blogUrl" title="@item.blogAdi">@item.blogAdi</a> </h6>
+            <div class="recipe-meta">
+                <div class="recipe-difficulty">
+                    <div class="recipe-difficulty-inner">
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                    </div>
+                    <span>@item.Kategori.kategoriAdi</span>
+                </div>
+                <div class="recipe-steps">
+                    <span><i class="fas fa-concierge-bell"></i> @item.blogGosterim</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,107 @@
+﻿@model saglikveri.Kullanici
+
+@{
+    ViewBag.Title = "Kullanıcı Ekle";
+}
+
+
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="page-title-box">
+            <h4>Kullanıcı Ekle</h4>
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a href="javascript: void(0);">Sağlıklı Yasam</a></li>
+                <li class="breadcrumb-item"><a href="javascript: void(0);">Admin Panel</a></li>
+                <li class="breadcrumb-item"><a href="~/Admin/Kullanicis/">Kullanıcı</a></li>
+                <li class="breadcrumb-item active">Kullanıcı Ekle</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="">
+    <div class="card">
+        <div class="card-body">
+            <div class="custom-validation">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>Kullanici Ekle</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form_control">
+                        <label class="form-label">Kullanıcı Adı</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.kullaniciadi, new { htmlAttributes = new { @type = "text", @class = "form-control text-box single-line", @required = "", @minlength = "5", @placeholder = "Kullanıcı Adınızı yazınız" } })
+                        </div>
+                        <div class="mb-3">
+
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form_control">
+                        <label class="form-label">Kullanıcı Adı Soyadı</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.kullaniciadisoyadi, new { htmlAttributes = new { @type = "text", @class = "form-control text-box single-line", @required = "", @minlength = "5", @placeholder = "Lütfen Adınızı Soyadınız yazınız" } })
+                        </div>
+                        <div class="mb-3">
+
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form_control">
+                        <label class="form-label">Kullanıcı Email</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.kullaniciemail, new { htmlAttributes = new { @type = "email", @class = "form-control text-box single-line", @required = "", @minlength = "7", @placeholder = "Lütfen email adresinizi doğru yazınız" } })
+                        </div>
+                        <div class="mb-3">
+
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form_control">
+                        <label class="form-label">Kullanıcı Şifre</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.kullaniciSifre, new { htmlAttributes = new { @type = "password", @class = "form-control text-box single-line", @required = "", @minlength = "6", @placeholder = "Kullanıcı şifresi en az 6 karakter olmalıdır." } })
+                        </div>
+                        <div class="mb-3">
+
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form_control">
+                        <label class="form-label">Kullanıcı Şifre Tekrar</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.KullaniciSifretekrar, new { htmlAttributes = new { @type = "password", @class = "form-control text-box single-line", @required = "", @minlength = "6", @placeholder = "Kullanıcı şifresi en az 6 karakter olmalıdır." } })
+                        </div>
+                        <div class="mb-3">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="btn btn-outline-primary waves-effect waves-light">
+                            <input type="submit" value="Kaydet" class="btn btn-default" />
+                        </div>
+                        @Html.ActionLink("Geri Gel", "Index")
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
